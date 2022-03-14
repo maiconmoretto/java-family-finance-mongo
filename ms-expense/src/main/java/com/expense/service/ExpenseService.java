@@ -21,6 +21,7 @@ public class ExpenseService {
     @Autowired
     private UserRestTemplateService userRestTemplate;
 
+
     public List<Expense> findAll() {
         return expenseRepository.findAll();
     }
@@ -36,6 +37,11 @@ public class ExpenseService {
 
     public Page<Expense> findWithPaginationAndSorting(int offset, int pageSize, String field) {
         Page<Expense> expenses = expenseRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
+        return expenses;
+    }
+
+    public Page<Expense> findByIdUserWithPaginationAndSorting(int offset, int pageSize, String field, String idUser) {
+        Page<Expense> expenses = expenseRepository.findByUserId(idUser, PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
         return expenses;
     }
 }
