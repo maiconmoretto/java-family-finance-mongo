@@ -15,7 +15,7 @@ public class Expense {
 
     @Id
     private String id;
-    private String name;
+    private String description;
     private BigDecimal amount;
     private String userId;
     private CategoryEnum category;
