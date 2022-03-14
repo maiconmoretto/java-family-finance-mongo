@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ms-income" />
+        <module name="ms-expense" />
+        <module name="ms-mongo" />
+        <module name="ms-user" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="ms-expense" target="11" />
+      <module name="ms-income" target="11" />
+      <module name="ms-mongo" target="11" />
+      <module name="ms-user" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ms-expense" options="-parameters" />
+      <module name="ms-income" options="-parameters" />
+      <module name="ms-mongo" options="-parameters" />
+      <module name="ms-user" options="-parameters" />
+    </option>
+  </component>
+</project>

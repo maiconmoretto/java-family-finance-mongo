@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ms-expense/ms-expense.iml" filepath="$PROJECT_DIR$/ms-expense/ms-expense.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-income/ms-income.iml" filepath="$PROJECT_DIR$/ms-income/ms-income.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-mongo/ms-mongo.iml" filepath="$PROJECT_DIR$/ms-mongo/ms-mongo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-user/ms-user.iml" filepath="$PROJECT_DIR$/ms-user/ms-user.iml" />
+    </modules>
+  </component>
+</project>
