@@ -29,8 +29,8 @@ public class ExpenseController {
     }
 
 
-        @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
-    public Page<Expense> findWithPaginationAndSorting(@PathVariable int offset,@PathVariable int pageSize,@PathVariable String field) {
+    @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
+    public Page<Expense> findWithPaginationAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field) {
         Page<Expense> expensesPagination = expenseService.findWithPaginationAndSorting(offset, pageSize, field);
         return expensesPagination;
     }
