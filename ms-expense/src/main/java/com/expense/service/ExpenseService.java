@@ -2,6 +2,7 @@ package com.expense.service;
 
 import com.expense.entity.Expense;
 import com.expense.repository.ExpenseRepository;
+import com.expense.request.ExpenseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -26,7 +27,14 @@ public class ExpenseService {
         return expenseRepository.findAll();
     }
 
-    public Expense save(Expense expense) throws Exception {
+    public Expense save(ExpenseDTO expenseDTO) throws Exception {
+        Expense expense = new Expense();
+        expense.setCategory(expenseDTO.getCategory());
+        expense.setAmount(expenseDTO.getAmount());
+        expense.setDescription(expenseDTO.getDescription());
+        expense.setUserId(expenseDTO.getUserId());
+        expense.setSpendAt(expenseDTO.getSpendAt());
+
         ResponseEntity userById = this.userRestTemplate.getUserById(expense);
         if (userById.getStatusCode().value() != HttpStatus.OK.value()) {
             throw new Exception("User with id = " + expense.getUserId() + " does not exist.");

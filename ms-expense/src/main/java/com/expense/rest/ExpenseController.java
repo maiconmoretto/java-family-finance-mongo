@@ -1,6 +1,7 @@
 package com.expense.rest;
 
 import com.expense.entity.Expense;
+import com.expense.request.ExpenseDTO;
 import com.expense.service.ExpenseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,23 +23,24 @@ public class ExpenseController {
 
     @ApiOperation(value = "Save a new expense")
     @PostMapping
-    public ResponseEntity<Expense> save(@RequestBody Expense expense) throws Exception {
-        return new ResponseEntity<Expense>(expenseService.save(expense), HttpStatus.CREATED);
+    public ResponseEntity<Expense> save(@RequestBody ExpenseDTO expenseDTO) throws Exception {
+        return new ResponseEntity<Expense>(expenseService.save(expenseDTO), HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "Find all expenses")
     @GetMapping
-    public List<Expense> findAllPaginated() {
+    public List<Expense> findAll() {
         return expenseService.findAll();
     }
 
-
+    @ApiOperation(value = "Find all expenses with pagination and sort")
     @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
     public Page<Expense> findWithPaginationAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field) {
         Page<Expense> expensesPagination = expenseService.findWithPaginationAndSorting(offset, pageSize, field);
         return expensesPagination;
     }
 
-
+    @ApiOperation(value = "Find all expenses by user id with pagination and sort")
     @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}/{userId}")
     public Page<Expense> findByIdUserWithPaginationAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field, @PathVariable String userId) {
         Page<Expense> expensesPagination = expenseService.findByIdUserWithPaginationAndSorting(offset, pageSize, field, userId);
