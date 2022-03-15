@@ -40,8 +40,8 @@ public class ExpenseService {
         return expenses;
     }
 
-    public Page<Expense> findByIdUserWithPaginationAndSorting(int offset, int pageSize, String field, String idUser) {
-        Page<Expense> expenses = expenseRepository.findByUserId(idUser, PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
+    public Page<Expense> findByIdUserWithPaginationAndSorting(int offset, int pageSize, String field, String userId) {
+        Page<Expense> expenses = expenseRepository.findByUserId(userId, PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
         return expenses;
     }
 }

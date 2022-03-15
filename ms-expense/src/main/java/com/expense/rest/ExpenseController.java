@@ -36,9 +36,9 @@ public class ExpenseController {
     }
 
 
-    @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}/{idUser}")
-    public Page<Expense> findByIdUserWithPaginationAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field, @PathVariable String idUser) {
-        Page<Expense> expensesPagination = expenseService.findByIdUserWithPaginationAndSorting(offset, pageSize, field, idUser);
+    @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}/{userId}")
+    public Page<Expense> findByIdUserWithPaginationAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field, @PathVariable String userId) {
+        Page<Expense> expensesPagination = expenseService.findByIdUserWithPaginationAndSorting(offset, pageSize, field, userId);
         return expensesPagination;
     }
 }
