@@ -62,7 +62,12 @@ public class ExpenseControllerTest {
                 .andExpect(status().isOk());
     }
 
-
+    @Test
+    public void testFindWithPaginationAndSorting_ShouldReturn_OK() throws Exception {
+        String url = "/expense/paginationAndSort/1/2/id";
+        mockMvc.perform(get(url))
+                .andExpect(status().isOk());
+    }
 /*    @Test
     public void testSave() throws Exception {
         Expense expense = new Expense();
