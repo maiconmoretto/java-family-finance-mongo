@@ -2,6 +2,8 @@ package com.expense.rest;
 
 import com.expense.entity.Expense;
 import com.expense.service.ExpenseService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -12,12 +14,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/expense")
+@Api(value = "testes")
 public class ExpenseController {
 
     @Autowired
     ExpenseService expenseService;
 
-
+    @ApiOperation(value = "Save a new expense")
     @PostMapping
     public ResponseEntity<Expense> save(@RequestBody Expense expense) throws Exception {
         return new ResponseEntity<Expense>(expenseService.save(expense), HttpStatus.CREATED);
