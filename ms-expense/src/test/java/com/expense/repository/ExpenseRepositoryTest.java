@@ -15,6 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RunWith(SpringRunner.class)
@@ -25,7 +27,6 @@ public class ExpenseRepositoryTest {
     ExpenseRepository expenseRepository;
 
     private Expense expense;
-
 
     @Before
     public void setUp() {
@@ -46,9 +47,14 @@ public class ExpenseRepositoryTest {
 
     @Test
     public void testFindByUserId_ShouldReturnExpense() {
-        String userId = "622213a205cbe91ac023f180";
-        Page<Expense> pageableByUserId = expenseRepository.findByUserId(userId, null);
+        Page<Expense> pageableByUserId = expenseRepository.findByUserId(this.expense.getUserId(), null);
         Assert.assertNotNull(pageableByUserId);
-        Assert.assertEquals(pageableByUserId.getContent().get(0).getUserId(), userId);
+        Assert.assertEquals(pageableByUserId.getContent().get(0).getUserId(), this.expense.getUserId());
+    }
+
+    @Test
+    public void testFindAll_ShouldReturnExpense() {
+        List<Expense> expense = expenseRepository.findAll();
+        Assert.assertNotNull(expense);
     }
 }
