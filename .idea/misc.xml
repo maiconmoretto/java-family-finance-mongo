@@ -3,7 +3,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/ms-mongo/pom.xml" />
         <option value="$PROJECT_DIR$/ms-user/pom.xml" />
         <option value="$PROJECT_DIR$/ms-income/pom.xml" />
         <option value="$PROJECT_DIR$/ms-expense/pom.xml" />

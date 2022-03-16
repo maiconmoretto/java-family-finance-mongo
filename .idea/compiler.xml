@@ -10,7 +10,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-income" />
         <module name="ms-expense" />
-        <module name="ms-mongo" />
         <module name="ms-user" />
       </profile>
     </annotationProcessing>
