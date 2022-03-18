@@ -3,6 +3,9 @@ package com.user.service;
 import com.user.entity.User;
 import com.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,8 +28,13 @@ public class UserService {
     public Optional<User> findById(String id) throws Exception {
         Optional<User> user = userRepository.findById(id);
         if (user.isEmpty()) {
-            throw new Exception("User with id = " + id  + " not found!");
+            throw new Exception("User with id = " + id + " not found!");
         }
         return user;
+    }
+
+    public Page<User> findWithPaginationAndSorting(int offset, int pageSize, String field) {
+        Page<User> users = userRepository.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
+        return users;
     }
 }
