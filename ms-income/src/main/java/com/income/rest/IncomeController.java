@@ -17,18 +17,18 @@ import java.util.List;
 public class IncomeController {
 
     @Autowired
-    IncomeService IncomeService;
+    IncomeService incomeService;
 
 
     @ApiOperation(value = "List all incomes")
     @GetMapping("/income")
     public List<Income> findAll() {
-        return IncomeService.findAll();
+        return incomeService.findAll();
     }
 
     @ApiOperation(value = "Save a income")
     @PostMapping("/income")
     public Income save(@RequestBody Income Income) throws Exception {
-        return IncomeService.save(Income);
+        return incomeService.save(Income);
     }
 }

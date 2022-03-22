@@ -1,9 +1,9 @@
-package com.user.rest;
+package com.income.rest;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.user.entity.User;
-import com.user.service.UserService;
+import com.income.entity.Income;
+import com.income.service.IncomeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class IncomeControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -25,14 +25,14 @@ public class UserControllerTest {
     private ObjectMapper objectMapper;
 
     @Autowired
-    UserService expenseService;
+    IncomeService incomeService;
 
-    private User user;
+    private Income income;
 
 
     @Test
     public void testFindAll_ShouldReturn_OK() throws Exception {
-        mockMvc.perform(get("/user/"))
+      mockMvc.perform(get("/income/"))
                 .andExpect(status().isOk());
     }
 
