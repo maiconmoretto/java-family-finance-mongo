@@ -20,5 +20,5 @@ public class Expense {
     private String userId;
     private CategoryEnum category;
     private LocalDateTime createdAt = LocalDateTime.now();
-    private LocalDate spendAt;
+    private String spendAt;
 }

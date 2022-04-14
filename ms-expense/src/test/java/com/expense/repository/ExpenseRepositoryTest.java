@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.*;
+import org.junit.platform.commons.util.StringUtils;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
@@ -17,6 +18,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 @RunWith(SpringRunner.class)
@@ -32,7 +34,7 @@ public class ExpenseRepositoryTest {
     public void setUp() {
         this.expense = new Expense();
         this.expense.setDescription("test description");
-        this.expense.setSpendAt(LocalDate.now());
+        this.expense.setSpendAt("2020-01-01");
         this.expense.setUserId("622213a205cbe91ac023f180");
         this.expense.setAmount(BigDecimal.valueOf(333.33));
         this.expense.setCategory(CategoryEnum.SHOP);

@@ -17,5 +17,5 @@ public class ExpenseDTO {
     private BigDecimal amount;
     private String userId;
     private CategoryEnum category;
-    private LocalDate spendAt;
+    private String spendAt;
 }

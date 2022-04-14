@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/expense")
@@ -23,7 +25,7 @@ public class ExpenseController {
 
     @ApiOperation(value = "Save a new expense")
     @PostMapping
-    public ResponseEntity<Expense> save(@RequestBody ExpenseDTO expenseDTO) throws Exception {
+    public ResponseEntity<Expense> save(ExpenseDTO expenseDTO) throws Exception {
         return new ResponseEntity<Expense>(expenseService.save(expenseDTO), HttpStatus.CREATED);
     }
 
@@ -31,6 +33,12 @@ public class ExpenseController {
     @GetMapping
     public List<Expense> findAll() {
         return expenseService.findAll();
+    }
+
+    @ApiOperation(value = "Find a expense by id")
+    @GetMapping("/{id}")
+    public Optional<Expense> findById(@PathVariable String id) {
+        return expenseService.findById(id);
     }
 
     @ApiOperation(value = "Find all expenses with pagination and sort")

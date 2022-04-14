@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ExpenseService {
@@ -51,5 +52,9 @@ public class ExpenseService {
     public Page<Expense> findByIdUserWithPaginationAndSorting(int offset, int pageSize, String field, String userId) {
         Page<Expense> expenses = expenseRepository.findByUserId(userId, PageRequest.of(offset, pageSize).withSort(Sort.by(field)));
         return expenses;
+    }
+
+    public Optional<Expense> findById(String id) {
+        return expenseRepository.findById(id);
     }
 }
