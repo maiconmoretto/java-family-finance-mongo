@@ -57,4 +57,16 @@ public class ExpenseService {
     public Optional<Expense> findById(String id) {
         return expenseRepository.findById(id);
     }
+
+    public Expense update(Expense expenseUpdate) {
+        Expense expense = new Expense();
+        expense.setId(expenseUpdate.getId());
+        expense.setAmount(expenseUpdate.getAmount());
+        expense.setCategory(expenseUpdate.getCategory());
+        expense.setSpendAt(expenseUpdate.getSpendAt());
+        expense.setDescription(expenseUpdate.getDescription());
+        expense.setUserId(expenseUpdate.getUserId());
+
+       return  expenseRepository.save(expense);
+    }
 }

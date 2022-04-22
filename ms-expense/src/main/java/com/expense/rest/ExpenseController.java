@@ -23,10 +23,16 @@ public class ExpenseController {
     @Autowired
     ExpenseService expenseService;
 
-    @ApiOperation(value = "Save a new expense")
+/*    @ApiOperation(value = "Save a new expense")
     @PostMapping
     public ResponseEntity<Expense> save(ExpenseDTO expenseDTO) throws Exception {
         return new ResponseEntity<Expense>(expenseService.save(expenseDTO), HttpStatus.CREATED);
+    }*/
+
+    @ApiOperation(value = "Update a new expense")
+    @PostMapping
+    public ResponseEntity<Expense> update(Expense expense) throws Exception {
+        return new ResponseEntity<Expense>(expenseService.update(expense), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Find all expenses")
