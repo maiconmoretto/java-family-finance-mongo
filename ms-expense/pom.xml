@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>ms-mongo</artifactId>
+	<artifactId>ms-expense</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-mongo</name>
+	<name>ms-expense</name>
 	<description>Demo project for Spring Boot - mongoDB</description>
 	<properties>
 		<java.version>11</java.version>
@@ -90,6 +90,11 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<scope>test</scope>
+	</dependency>
 
 
 

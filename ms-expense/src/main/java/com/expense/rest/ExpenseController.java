@@ -23,20 +23,21 @@ public class ExpenseController {
     @Autowired
     ExpenseService expenseService;
 
-/*    @ApiOperation(value = "Save a new expense")
+    @ApiOperation(value = "Save a new expense")
     @PostMapping
     public ResponseEntity<Expense> save(ExpenseDTO expenseDTO) throws Exception {
         return new ResponseEntity<Expense>(expenseService.save(expenseDTO), HttpStatus.CREATED);
-    }*/
+    }
 
     @ApiOperation(value = "Update a new expense")
-    @PostMapping
+    @PutMapping
     public ResponseEntity<Expense> update(Expense expense) throws Exception {
         return new ResponseEntity<Expense>(expenseService.update(expense), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Find all expenses")
     @GetMapping
+   // @CrossOrigin(origins = "http://localhost:3000")
     public List<Expense> findAll() {
         return expenseService.findAll();
     }
@@ -59,5 +60,11 @@ public class ExpenseController {
     public Page<Expense> findByIdUserWithPaginationAndSorting(@PathVariable int offset, @PathVariable int pageSize, @PathVariable String field, @PathVariable String userId) {
         Page<Expense> expensesPagination = expenseService.findByIdUserWithPaginationAndSorting(offset, pageSize, field, userId);
         return expensesPagination;
+    }
+
+    @ApiOperation(value = "Delete a expense")
+    @DeleteMapping("/{id}")
+    public void  delete(@PathVariable ("id") String id) {
+        expenseService.deleteById(id);
     }
 }

@@ -69,4 +69,8 @@ public class ExpenseService {
 
        return  expenseRepository.save(expense);
     }
+
+    public void deleteById(String id) {
+        expenseRepository.deleteById(id);
+    }
 }
