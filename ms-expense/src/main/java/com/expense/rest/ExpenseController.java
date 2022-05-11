@@ -25,7 +25,7 @@ public class ExpenseController {
 
     @ApiOperation(value = "Save a new expense")
     @PostMapping
-    public ResponseEntity<Expense> save(ExpenseDTO expenseDTO) throws Exception {
+    public ResponseEntity<Expense> save(@RequestBody ExpenseDTO expenseDTO) throws Exception {
         return new ResponseEntity<Expense>(expenseService.save(expenseDTO), HttpStatus.CREATED);
     }
 
@@ -37,7 +37,6 @@ public class ExpenseController {
 
     @ApiOperation(value = "Find all expenses")
     @GetMapping
-   // @CrossOrigin(origins = "http://localhost:3000")
     public List<Expense> findAll() {
         return expenseService.findAll();
     }
