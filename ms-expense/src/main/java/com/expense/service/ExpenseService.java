@@ -4,6 +4,7 @@ import com.expense.entity.Expense;
 import com.expense.repository.ExpenseRepository;
 import com.expense.request.ExpenseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -54,6 +55,7 @@ public class ExpenseService {
         return expenses;
     }
 
+    @Cacheable(value = "itemCache")
     public Optional<Expense> findById(String id) {
         return expenseRepository.findById(id);
     }

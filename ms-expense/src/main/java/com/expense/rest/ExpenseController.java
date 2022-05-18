@@ -6,6 +6,9 @@ import com.expense.service.ExpenseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +40,10 @@ public class ExpenseController {
 
     @ApiOperation(value = "Find all expenses")
     @GetMapping
+    @Cacheable("findAll")
     public List<Expense> findAll() {
+        System.out.println("entrou carai!");
+
         return expenseService.findAll();
     }
 
@@ -63,7 +69,7 @@ public class ExpenseController {
 
     @ApiOperation(value = "Delete a expense")
     @DeleteMapping("/{id}")
-    public void  delete(@PathVariable ("id") String id) {
+    public void delete(@PathVariable("id") String id) {
         expenseService.deleteById(id);
     }
 }
